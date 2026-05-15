@@ -30,9 +30,9 @@ class QuickSort {
         return i;
     }
 
-	private static void swap(int[] array, int i, int j) {
+    private static void swap(int[] array, int i, int j) {
         int aux = array[i];
         array[i] = array[j];
         array[j] = aux;
-	}
+    }
 }
