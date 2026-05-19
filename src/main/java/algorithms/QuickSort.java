@@ -1,12 +1,18 @@
 package algorithms;
 
 import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 class QuickSort {
     public static void main(String[] args) {
-        int[] array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        Scanner sc = new Scanner(System.in);
+
+        int[] array = Arrays.stream(sc.nextLine().split(" "))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+
         quickSort(array, 0, array.length - 1);
-        System.out.println(Arrays.toString(array));
     }
 
     private static void quickSort(int[] array, int ini, int fim) {
@@ -27,6 +33,7 @@ class QuickSort {
 
         swap(array, ini, i);
 
+        System.out.println(Arrays.stream(array).mapToObj(String::valueOf).collect(Collectors.joining(" ")));
         return i;
     }
 
