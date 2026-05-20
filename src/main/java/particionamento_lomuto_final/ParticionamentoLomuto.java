@@ -1,3 +1,5 @@
+package particionamento_lomuto_final;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -9,12 +11,8 @@ public class ParticionamentoLomuto {
                         .mapToInt(Integer::parseInt)
                         .toArray();
 
-        quickSort(array, 0, array.length - 1);
+        partition(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
-    }
-
-    private static void quickSort(int[] array, int ini, int fim) {
-        int idx = partition(array, ini, fim);
     }
 
     private static int partition(int[] array, int ini, int fim) {
