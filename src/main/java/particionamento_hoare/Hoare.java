@@ -16,12 +16,14 @@ public class Hoare {
     private static void quickSort(int[] array, int ini, int fim) {
         if (ini < fim) {
             int idx = hoare(array, ini, fim);
-            quickSort(array, ini, idx - 1);
+            quickSort(array, ini, idx);
             quickSort(array, idx + 1, fim);
         }
     }
 
-    private static int hoare(int[] array, int ini, int fim) {
+
+    // Variação que vi em sala
+    private static int hoareVariation(int[] array, int ini, int fim) {
         int pivot = array[ini];
         int i = ini + 1;
         int j = fim;
@@ -42,6 +44,29 @@ public class Hoare {
 
         return j;
     }
+
+    // Hoare do código original
+    private static int hoare(int[] array, int ini, int fim) {
+        int pivot = array[ini];
+        int i = ini - 1;
+        int j = fim + 1;
+
+        while (true) {
+            do {
+                i++;
+            } while (array[i] < pivot);
+
+            do {
+                j--;
+            } while (array[j] > pivot);
+
+            if (i >= j) 
+                return j;
+
+            swap(array, i, j);
+
+        }
+    } 
 
     private static void swap(int[] array, int i, int j) {
         int aux = array[i];
