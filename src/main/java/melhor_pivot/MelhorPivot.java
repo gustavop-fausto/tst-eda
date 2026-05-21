@@ -19,22 +19,18 @@ class MelhorPivot{
     private static int melhorPivot(int[] array, int num1, int num2) {
         int idxPivot1 = partition(array, num1, array.length - 1);
         int idxPivot2 = partition(array, num2, array.length - 1);
-        
-        int meio = array.length / 2;
-        int dist1 = Math.abs(idxPivot1 - meio);
-        int dist2 = Math.abs(idxPivot2 - meio);
 
-        if (dist1 < dist2) 
+        int meio = array.length / 2;
+
+        if (Math.abs(meio - idxPivot1) <= Math.abs(meio - idxPivot2)) {
             return num1;
+        }
 
         return num2;
     }
 
     private static int partition(int[] array, int ini, int fim) {
         int i = ini;
-
-        swap(array, i, 0);
-        System.out.println(Arrays.toString(array));
 
         for (int j = ini + 1; j <= fim; j++) {
             if (array[j] <= array[ini])
